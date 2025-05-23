@@ -22,7 +22,7 @@ const Pokemon = () => {
             setIsLoading(false)
         }
         fetchPokemonInfo()
-    }, [])
+    }, [name])
 
     if (isLoading || !pokemonDetails) {
         return <LoadingScreen />
