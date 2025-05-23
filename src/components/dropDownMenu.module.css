@@ -1,0 +1,75 @@
+/* Contenedor principal */
+.container {
+  position: relative;
+  display: inline-block;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Botón que activa el menú */
+.button {
+  background-color: rgba(124, 166, 252, 1);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button:hover {
+  background-color: rgba(119, 235, 129, 1);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4);
+}
+
+/* Icono de flecha */
+.button::after {
+  content: '▼';
+  font-size: 12px;
+}
+
+/* Lista desplegable */
+.list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 8px 0;
+  margin: 4px 0 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Estado activo del menú */
+.active .list {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Items del menú */
+.item {
+  padding: 10px 16px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.item:hover {
+  background: var(--bg-gradient);
+  border-radius: 2%;
+}
