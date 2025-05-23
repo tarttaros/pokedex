@@ -15,14 +15,16 @@ const Pokemon = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const fetchPokemonInfo = async () => {
-            setIsLoading(true)
-            const pokemon = await fetchPokemon(name as string)
-            setPokemonDetails(pokemon)
-            setIsLoading(false)
-        }
         fetchPokemonInfo()
-    }, [name])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    const fetchPokemonInfo = async () => {
+        setIsLoading(true)
+        const pokemon = await fetchPokemon(name as string)
+        setPokemonDetails(pokemon)
+        setIsLoading(false)
+    }
 
     if (isLoading || !pokemonDetails) {
         return <LoadingScreen />

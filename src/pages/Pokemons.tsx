@@ -64,6 +64,7 @@ const Pokemons = () => {
             }
         }
         filterPokemons()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [generation])
 
     const filteredPokemons = listPokemons?.filter((pokemon) => {
