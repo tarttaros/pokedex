@@ -19,11 +19,10 @@ const Item = () => {
             setIsLoading(true)
             const item = await fetchItem(name as ItemDetails["name"])
             setItemDetails(item)
-            console.log(itemDetails)
             setIsLoading(false)
         }
         fetchItemInfo()
-    }, [itemDetails,name])
+    }, [name])
 
     if (isLoading || !itemDetails) {
         return <LoadingScreen />
