@@ -1,30 +1,31 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { fetchItem } from "../api/fetchItem";
+import { ItemDetails } from "../types/types";
 import Footer from "../components/Footer";
 import styles from "./pokemon.module.css"
 import pokeball from "../assets/pokeball.png"
-import { fetchPokemon } from "../api/fetchPokemon";
-import { PokemonDetails } from "../types/types";
 import LoadingScreen from "../components/LoadingScreen";
 
-const Pokemon = () => {
+const Item = () => {
 
     const { name } = useParams()
     const [isLoading, setIsLoading] = useState(false)
-    const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails>()
+    const [itemDetails, setItemDetails] = useState<ItemDetails>()
     const navigate = useNavigate()
 
     useEffect(() => {
-        const fetchPokemonInfo = async () => {
+        const fetchItemInfo = async () => {
             setIsLoading(true)
-            const pokemon = await fetchPokemon(name as PokemonDetails["name"])
-            setPokemonDetails(pokemon)
+            const item = await fetchItem(name as ItemDetails["name"])
+            setItemDetails(item)
+            console.log(itemDetails)
             setIsLoading(false)
         }
-        fetchPokemonInfo()
-    }, [name])
+        fetchItemInfo()
+    }, [itemDetails,name])
 
-    if (isLoading || !pokemonDetails) {
+    if (isLoading || !itemDetails) {
         return <LoadingScreen />
     }
 
@@ -40,14 +41,10 @@ const Pokemon = () => {
                 <main className={styles.pokemonInfo}>
                     <div className={styles.pokemonTitle}>{name}</div>
                     <div>
-                        <img className={styles.pokemonInfoImg} src={pokemonDetails?.imgSrc} alt={name} />
+                        <img className={styles.pokemonInfoImg} src={itemDetails?.imgSrc} alt={name} />
                     </div>
-                    <div>HP: {pokemonDetails?.hp}</div>
-                    <div>ATTACK: {pokemonDetails?.attack}</div>
-                    <div>ATTACK SP: {pokemonDetails?.attackSp}</div>
-                    <div>DEFENSE: {pokemonDetails?.defense}</div>
-                    <div>DEFENSE SP: {pokemonDetails?.defenseSp}</div>
-                    <div>SPEED: {pokemonDetails?.speed}</div>
+                    <div>{itemDetails?.desc}</div>
+                    <div>Costo: {itemDetails?.cost}</div>
                 </main>
             </div>
             <Footer />
@@ -55,4 +52,4 @@ const Pokemon = () => {
     )
 }
 
-export default Pokemon;
+export default Item;

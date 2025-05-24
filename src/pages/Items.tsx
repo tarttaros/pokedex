@@ -53,7 +53,7 @@ const Items = () => {
                             <Link
                                 key={item.id}
                                 className={styles.listItem}
-                                to={`/item/${item.name}`}
+                                to={`/items/${item.name}`}
                             >
                                 <img
                                     className={styles.listItemIcon}

@@ -2,9 +2,13 @@
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  /* Permite que los botones se ajusten en móviles */
+  gap: 6px;
+  /* Reducir gap en móviles */
+  margin: 20px 0;
+  padding: 0 10px;
+  /* Evita que toque los bordes en móviles */
 }
 
 .pagination button {
@@ -13,8 +17,13 @@
   background: var(--bg-border);
   cursor: pointer;
   border-radius: 4px;
+  min-width: 40px;
+  /* Ancho mínimo para mantener legibilidad */
+  transition: background 0.2s;
+  /* Suaviza el hover */
 }
 
+/* Estilos para hover y activo */
 .pagination button:hover:not(:disabled) {
   background: #f0f0f0;
 }
@@ -28,4 +37,35 @@
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Responsive: Móviles */
+@media (max-width: 600px) {
+  .pagination {
+    gap: 4px;
+    /* Menor separación en móviles */
+  }
+
+  .pagination button {
+    padding: 6px 8px;
+    /* Botones más compactos */
+    min-width: 32px;
+    /* Tamaño reducido */
+    font-size: 14px;
+    /* Texto más pequeño */
+  }
+}
+
+/* Opcional: Ocultar números en móviles muy pequeños (ej. solo mostrar Prev/Next) */
+@media (max-width: 400px) {
+  .pagination button:not(.prev):not(.next) {
+    display: none;
+  }
+
+  .pagination button.prev,
+  .pagination button.next {
+    padding: 8px 12px;
+    /* Más prominentes */
+  }
+
 }

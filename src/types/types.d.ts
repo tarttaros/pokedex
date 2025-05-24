@@ -25,6 +25,7 @@ export type Item = {
 export type ItemDetails = {
     name: string
     id: string
+    cost: number
     desc: string
     imgSrc: string
 }

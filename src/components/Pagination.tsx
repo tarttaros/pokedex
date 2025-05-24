@@ -15,6 +15,7 @@ export const Pagination: FC<PaginationProps> = ({
     return (
         <div className={styles.pagination}>
             <button
+                className={styles.prev}
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
                 aria-label="Página anterior"
@@ -34,6 +35,7 @@ export const Pagination: FC<PaginationProps> = ({
             ))}
 
             <button
+                className={styles.next}
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 aria-label="Página siguiente"

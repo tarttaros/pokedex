@@ -6,7 +6,7 @@ interface DropdownMenuProps {
     onSelect: (selectedValue: string) => void;
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ options,onSelect }) => {
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ options, onSelect }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState("KANTO");
@@ -16,17 +16,17 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options,onSelect }) => {
     };
 
     const handleSelect = (item: string) => {
-        onSelect(item)
         setSelectedItem(item);
+        onSelect(item)
         toggleMenu()
     };
 
     return (
         <div className={`${styles.container} ${isOpen ? styles.active : ''}`} >
-            <button className={styles.button} onClick={toggleMenu}>{selectedItem ? selectedItem : 'Selecciona un ítem'}</button>
+            <button className={styles.button} onClick={toggleMenu}>{selectedItem}</button>
             <ul className={styles.list}>
                 {options.map((option) => (
-                    <li className={styles.item} onClick={() => handleSelect(option.value)}>
+                    <li className={styles.item} key={option.value} onClick={() => handleSelect(option.value)}>
                         {option.value}
                     </li>
                 ))}
