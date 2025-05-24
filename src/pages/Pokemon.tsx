@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { fetchPokemon } from "../api/fetchPokemon";
+import { PokemonDetails } from "../types/types";
 import Footer from "../components/Footer";
 import styles from "./pokemon.module.css"
 import pokeball from "../assets/pokeball.png"
-import { fetchPokemon } from "../api/fetchPokemon";
-import { PokemonDetails } from "../types/types";
 import LoadingScreen from "../components/LoadingScreen";
 
 const Pokemon = () => {
