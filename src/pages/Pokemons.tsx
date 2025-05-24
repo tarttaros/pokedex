@@ -48,6 +48,7 @@ const Pokemons = () => {
                     options={regions}
                     onSelect={handleSelect}
                 />
+                {error && <p style={{color:'red'}}>{error}</p>}
                 <nav className={styles.nav}>
                     {filteredPokemons?.map((pokemon) => {
                         return (
