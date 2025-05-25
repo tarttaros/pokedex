@@ -15,7 +15,7 @@ export async function fetchItem(name : ItemDetails["name"]): Promise<ItemDetails
     const item = {
         name: result.name,
         id: result.id,
-        desc: result.flavor_text_entries[13].text,
+        desc: result.flavor_text_entries[0].text,
         cost: result.cost,
         imgSrc: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${formatItemName(name)}.png`,
     }

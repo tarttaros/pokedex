@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchItem } from "../api/fetchItem";
 import { ItemDetails } from "../types/types";
 import Footer from "../components/Footer";
-import styles from "./pokemon.module.css"
+import styles from "./item.module.css"
 import pokeball from "../assets/pokeball.png"
 import LoadingScreen from "../components/LoadingScreen";
 
@@ -36,14 +36,14 @@ const Item = () => {
                     go Back
                 </button>
             </div>
-            <div className={styles.pokemon}>
-                <main className={styles.pokemonInfo}>
-                    <div className={styles.pokemonTitle}>{name}</div>
-                    <div>
-                        <img className={styles.pokemonInfoImg} src={itemDetails?.imgSrc} alt={name} />
+            <div className={styles.item}>
+                <main className={styles.itemInfo}>
+                    <div className={styles.itemTitle}>{name}</div>
+                    <div className={styles.itemInfoImgContainer}>
+                        <img className={styles.itemInfoImg} src={itemDetails?.imgSrc} alt={name} />
                     </div>
-                    <div>{itemDetails?.desc}</div>
-                    <div>Costo: {itemDetails?.cost}</div>
+                    <div className={styles.itemDescription}>{itemDetails?.desc}</div>
+                    <div className={styles.itemCost}>Costo: {itemDetails?.cost}</div>
                 </main>
             </div>
             <Footer />

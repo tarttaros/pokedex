@@ -39,15 +39,17 @@ const Pokemon = () => {
             <div className={styles.pokemon}>
                 <main className={styles.pokemonInfo}>
                     <div className={styles.pokemonTitle}>{name}</div>
-                    <div>
+                    <div className={styles.pokemonInfoImgContainer}>
                         <img className={styles.pokemonInfoImg} src={pokemonDetails?.imgSrc} alt={name} />
                     </div>
-                    <div>HP: {pokemonDetails?.hp}</div>
-                    <div>ATTACK: {pokemonDetails?.attack}</div>
-                    <div>ATTACK SP: {pokemonDetails?.attackSp}</div>
-                    <div>DEFENSE: {pokemonDetails?.defense}</div>
-                    <div>DEFENSE SP: {pokemonDetails?.defenseSp}</div>
-                    <div>SPEED: {pokemonDetails?.speed}</div>
+                    <div className={styles.pokemonDescriptionContainer}>
+                        <div className={styles.pokemonDescription}>HP: {pokemonDetails?.hp}</div>
+                        <div className={styles.pokemonDescription}>ATTACK: {pokemonDetails?.attack}</div>
+                        <div className={styles.pokemonDescription}>ATTACK SP: {pokemonDetails?.attackSp}</div>
+                        <div className={styles.pokemonDescription}>DEFENSE: {pokemonDetails?.defense}</div>
+                        <div className={styles.pokemonDescription}>DEFENSE SP: {pokemonDetails?.defenseSp}</div>
+                        <div className={styles.pokemonDescription}>SPEED: {pokemonDetails?.speed}</div>
+                    </div>
                 </main>
             </div>
             <Footer />
