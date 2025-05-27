@@ -34,6 +34,8 @@ const Generations = () => {
                     })}
                 </nav>
             </main>
+            <div className={styles.footer}>
+            </div>
             <Footer />
         </>
     )
