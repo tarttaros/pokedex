@@ -1,32 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./pokemons.module.css"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LoadingScreen from "../components/LoadingScreen"
-import DropdownMenu from "../components/DropDownMenu";
 import { usePokemons } from "../hooks/usePokemons";
+import { Region } from "../types/types";
 
 const Pokemons = () => {
 
+    const { generation } = useParams()
     const [query, setQuery] = useState("")
-    const [generation, setGeneration] = useState("KANTO")
     const [isLoading, setIsLoading] = useState(false)
     const { listPokemons, fetchAllPokemons, error } = usePokemons()
-    const regions = [
-        { value: 'KANTO' },
-        { value: 'JOHTO' },
-        { value: 'HOENN' },
-        { value: 'SINNOH' },
-        { value: 'TESSELIA' },
-    ];
 
     useEffect(() => {
         setIsLoading(true)
-        fetchAllPokemons(generation)
+        fetchAllPokemons(generation as Region["value"])
         setIsLoading(false)
-        
-    }, [fetchAllPokemons,generation])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const filteredPokemons = listPokemons?.filter((pokemon) => {
         return pokemon.name.toLowerCase().match(query.toLowerCase())
@@ -36,35 +29,29 @@ const Pokemons = () => {
         return <LoadingScreen />
     }
 
-    const handleSelect = (generation: string) => {
-        setGeneration(generation)
-    };
-
     return (
-        <>
+        <div className={styles.layoutContainer}>
             <Header query={query} setQuery={setQuery} />
             <main className={styles.main}>
-                <DropdownMenu
-                    options={regions}
-                    onSelect={handleSelect}
-                />
-                {error && <p style={{color:'red'}}>{error}</p>}
+                {error && <p style={{ color: 'red' }}>{error}</p>}
                 <nav className={styles.nav}>
                     {filteredPokemons?.map((pokemon) => {
                         return (
                             <Link
                                 key={pokemon.id}
                                 className={styles.listItem}
-                                to={`/pokemons/${pokemon.name}`}
+                                to={`/generations/${generation}/${pokemon.name}`}
                             >
-                                <img
-                                    className={styles.listItemsIcon}
-                                    src={pokemon.imgSrc}
-                                    alt={pokemon.name}>
-                                </img>
+                                <div className={styles.imageContainer}>
+                                    <img
+                                        className={styles.listItemsIcon}
+                                        src={pokemon.imgSrc}
+                                        alt={pokemon.name}>
+                                    </img>
+                                </div>
                                 <div className={styles.listItemText}>
                                     <span>{pokemon.name}</span>
-                                    <span>{pokemon.id}</span>
+                                    <span>N. Pokedex: {pokemon.id}</span>
                                 </div>
                             </Link>
                         )
@@ -72,7 +59,7 @@ const Pokemons = () => {
                 </nav>
             </main>
             <Footer />
-        </>
+        </div>
     )
 }
 

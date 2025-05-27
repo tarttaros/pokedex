@@ -8,7 +8,7 @@
 import { formatPokemonName } from "../utils/utils"
 import { Pokemon } from "../types/types"
 
-export async function fetchPokemons(): Promise<Pokemon[]> {
+export async function fetchPokemons(inicio: number, fin: number): Promise<Pokemon[]> {
     const response = await fetch(
         "https://unpkg.com/pokemons@1.1.0/pokemons.json"
     )
@@ -19,7 +19,10 @@ export async function fetchPokemons(): Promise<Pokemon[]> {
 
     const results = await response.json()
 
-    const pokemons = results.results.map((pokemon: any) => ({
+    const filter = results.results
+        .filter((p: any ) => (parseInt(p.national_number) <= fin && parseInt(p.national_number) >= inicio))
+        
+    const pokemons = filter.map((pokemon: any) => ({
         name: pokemon.name,
         id: pokemon.national_number,
         imgSrc: `https://img.pokemondb.net/sprites/black-white/anim/normal/${formatPokemonName(pokemon.name)}.gif`,

@@ -29,3 +29,9 @@ export type ItemDetails = {
     desc: string
     imgSrc: string
 }
+
+export type Region = {
+    id: number
+    name: string
+    value: string
+}

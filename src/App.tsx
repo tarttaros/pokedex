@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Item, Items, Pokemon, Pokemons } from './pages';
+import { Generations, Item, Items, Pokemon, Pokemons } from './pages';
 
 
 function App() {
@@ -9,12 +9,12 @@ function App() {
       <Router>
         <div className='app'>
           <Routes>
-            <Route path="/pokemons/:name" element={<Pokemon />} />
-            <Route path="/pokemons" element={<Pokemons />} />
+            <Route path="/generations/:generation/:name" element={<Pokemon />} />
+            <Route path="/generations/:generation" element={<Pokemons />} />
             <Route path="/items/:name" element={<Item />} />
             <Route path="/items" element={<Items />} />
-            <Route path="/" element={<Pokemons />} />
-            <Route path="*" element={<Pokemons />} />
+            <Route path="/" element={<Generations />} />
+            <Route path="*" element={<Generations />} />
           </Routes>
         </div>
       </Router>

@@ -1,27 +1,35 @@
 .nav {
+    width: 100%;
     margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .listItem {
     display: flex;
     justify-content: center;
-    width: auto;
+    align-items: center;
+    justify-content: center;
+    width: 45vh;
     border-bottom: 3px;
     padding: 10px;
     text-decoration: none;
-    margin: auto;
-}
-
-.listItem> :first-child {
-    margin-right: 15px;
 }
 
 .listItem> :last-child {
     margin: 0;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vh;
 }
 
 .listItemIcon {
@@ -44,6 +52,5 @@
 .listItemText> :last-child {
     color: grey;
     font-weight: bolder;
-    font-size: 0.8rem;
     display: block;
 }

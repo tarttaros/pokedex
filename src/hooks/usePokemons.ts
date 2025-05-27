@@ -11,40 +11,21 @@ export function usePokemons() {
 
         if (!generation) return
         try {
-            const allPokemons = await fetchPokemons()
-            filterPokemons(allPokemons, generation)
+            if (generation.match("kanto")) {
+                setListPokemons(await fetchPokemons(0, 151))
+            } else if (generation.match("johto")) {
+                setListPokemons(await fetchPokemons(152, 251))
+            } else if (generation.match("hoenn")) {
+                setListPokemons(await fetchPokemons(252, 386))
+            } else if (generation.match("sinnoh")) {
+                setListPokemons(await fetchPokemons(387, 494))
+            } else if (generation.match("tesselia")) {
+                setListPokemons(await fetchPokemons(495, 649))
+            }else {
+                setListPokemons(await fetchPokemons(0, 151))
+            }
         } catch (error: any) {
             setError(error.message)
-        }
-
-    }
-
-    const filterPokemons = (allPokemons: Pokemon[], generation: string) => {
-
-        if (generation.match("KANTO")) {
-            setListPokemons(allPokemons?.slice(0, 151).filter((pokemon) => {
-                return pokemon
-            }))
-        } else if (generation.match("JOHTO")) {
-            setListPokemons(allPokemons?.slice(152, 251).filter((pokemon) => {
-                return pokemon
-            }))
-        } else if (generation.match("HOENN")) {
-            setListPokemons(allPokemons?.slice(252, 386).filter((pokemon) => {
-                return pokemon
-            }))
-        } else if (generation.match("SINNOH")) {
-            setListPokemons(allPokemons?.slice(387, 494).filter((pokemon) => {
-                return pokemon
-            }))
-        } else if (generation.match("TESSELIA")) {
-            setListPokemons(allPokemons?.slice(495, 649).filter((pokemon) => {
-                return pokemon
-            }))
-        } else {
-            setListPokemons(allPokemons?.slice(0, 151).filter((pokemon) => {
-                return pokemon
-            }))
         }
     }
     return { listPokemons, fetchAllPokemons, error }

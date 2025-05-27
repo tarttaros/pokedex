@@ -1,17 +1,38 @@
 .header {
-    display: grid;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
     font-size: 1.2rem;
     font-weight: bold;
     padding: 10px;
-    place-items: center;
     background: var(--bg-border);
+    position: relative; /* Necesario para el posicionamiento absoluto del input */
+}
+
+.pokeballButton {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    background: none;
+    padding: 12.5px;
+    z-index: 1; /* Asegura que el botón esté sobre otros elementos */
+}
+
+.pokeballImg {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
 }
 
 .input {
     background-color: rgba(121, 121, 121, 0.130);
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 5px;
-    margin: 10px 10px;
     border: none;
-    width: 80vw;
+    width: 30vw;
+    position: absolute; /* Posicionamiento absoluto para centrado preciso */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Ajuste fino del centrado */
 }

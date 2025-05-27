@@ -55,13 +55,17 @@ const Items = () => {
                                 className={styles.listItem}
                                 to={`/items/${item.name}`}
                             >
-                                <img
-                                    className={styles.listItemIcon}
-                                    src={item.imgSrc}
-                                    alt={item.name}>
-                                </img>
-                                <div className={styles.listItemText}>
-                                    <span>{item.name}</span>
+                                <div className={styles.imageContainer}>
+                                    <img
+                                        className={styles.listItemIcon}
+                                        src={item.imgSrc}
+                                        alt={item.name}>
+                                    </img>
+                                </div>
+                                <div className={styles.itemContainer}>
+                                    <div className={styles.listItemText}>
+                                        <span>{item.name}</span>
+                                    </div>
                                 </div>
                             </Link>
                         )
