@@ -1,6 +1,5 @@
 .headContainer {
     display: flex;
-    position: fixed;
     width: 100%;
     font-size: 1.2rem;
     font-weight: bold;
@@ -25,13 +24,10 @@
 }
 
 .pokemon {
-    position: fixed;
-    width: 300px;
-    height: 460px;
-    top: calc(50% - 230px);
-    /* 50% - mitad de su altura */
-    left: calc(50% - 150px);
-    /* 50% - mitad de su ancho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 /* Estilo Card - Versión Mejorada */
@@ -86,4 +82,14 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+
+.footer {
+    padding: 45.5px;
+    background: var(--bg-border);
+    position: relative;
+    color: #f0f0f0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 750;
 }

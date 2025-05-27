@@ -30,7 +30,7 @@ const Pokemons = () => {
     }
 
     return (
-        <div className={styles.layoutContainer}>
+        <>
             <Header query={query} setQuery={setQuery} />
             <main className={styles.main}>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -59,7 +59,7 @@ const Pokemons = () => {
                 </nav>
             </main>
             <Footer />
-        </div>
+        </>
     )
 }
 

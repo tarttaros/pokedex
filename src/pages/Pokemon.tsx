@@ -36,8 +36,8 @@ const Pokemon = () => {
                     go Back
                 </button>
             </div>
-            <div className={styles.pokemon}>
-                <main className={styles.pokemonInfo}>
+            <main className={styles.pokemon}>
+                <div className={styles.pokemonInfo}>
                     <div className={styles.pokemonTitle}>{name}</div>
                     <div className={styles.pokemonInfoImgContainer}>
                         <img className={styles.pokemonInfoImg} src={pokemonDetails?.imgSrc} alt={name} />
@@ -50,7 +50,9 @@ const Pokemon = () => {
                         <div className={styles.pokemonDescription}>DEFENSE SP: {pokemonDetails?.defenseSp}</div>
                         <div className={styles.pokemonDescription}>SPEED: {pokemonDetails?.speed}</div>
                     </div>
-                </main>
+                </div>
+            </main>
+            <div className={styles.footer}>
             </div>
             <Footer />
         </>
