@@ -36,15 +36,17 @@ const Item = () => {
                     go Back
                 </button>
             </div>
-            <div className={styles.item}>
-                <main className={styles.itemInfo}>
+            <main className={styles.item}>
+                <div className={styles.itemInfo}>
                     <div className={styles.itemTitle}>{name}</div>
                     <div className={styles.itemInfoImgContainer}>
                         <img className={styles.itemInfoImg} src={itemDetails?.imgSrc} alt={name} />
                     </div>
                     <div className={styles.itemDescription}>{itemDetails?.desc}</div>
-                    <div className={styles.itemCost}>Costo: {itemDetails?.cost}</div>
-                </main>
+                    <div className={styles.itemCost}>Cost: {itemDetails?.cost}</div>
+                </div>
+            </main>
+            <div className={styles.footer}>
             </div>
             <Footer />
         </>

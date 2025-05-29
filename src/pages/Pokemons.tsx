@@ -9,14 +9,14 @@ import { Region } from "../types/types";
 
 const Pokemons = () => {
 
-    const { generation } = useParams()
+    const { region } = useParams()
     const [query, setQuery] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const { listPokemons, fetchAllPokemons, error } = usePokemons()
 
     useEffect(() => {
         setIsLoading(true)
-        fetchAllPokemons(generation as Region["value"])
+        fetchAllPokemons(region as Region["value"])
         setIsLoading(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -40,7 +40,7 @@ const Pokemons = () => {
                             <Link
                                 key={pokemon.id}
                                 className={styles.listItem}
-                                to={`/generations/${generation}/${pokemon.name}`}
+                                to={`/regions/${region}/${pokemon.name}`}
                             >
                                 <div className={styles.imageContainer}>
                                     <img

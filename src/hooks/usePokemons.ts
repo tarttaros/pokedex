@@ -19,7 +19,7 @@ export function usePokemons() {
                 setListPokemons(await fetchPokemons(252, 386))
             } else if (generation.match("sinnoh")) {
                 setListPokemons(await fetchPokemons(387, 494))
-            } else if (generation.match("tesselia")) {
+            } else if (generation.match("unova")) {
                 setListPokemons(await fetchPokemons(495, 649))
             }else {
                 setListPokemons(await fetchPokemons(0, 151))
