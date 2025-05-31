@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Regions, Item, Items, Pokemon, Pokemons } from './pages';
+import { Regions, Item, Items, Pokemon, Pokemons, Ability, Abilities } from './pages';
 
 
 function App() {
@@ -13,6 +13,8 @@ function App() {
             <Route path="/regions/:region" element={<Pokemons />} />
             <Route path="/items/:name" element={<Item />} />
             <Route path="/items" element={<Items />} />
+            <Route path="/abilities/:name" element={<Ability />} />
+            <Route path="/abilities" element={<Abilities />} />
             <Route path="/" element={<Regions />} />
             <Route path="*" element={<Regions />} />
           </Routes>

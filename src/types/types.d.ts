@@ -35,3 +35,32 @@ export type Region = {
     name: string
     value: string
 }
+
+export type Ability = {
+    id: string
+    name: string
+    imgSrc: string
+}
+
+export type AbilityDetails = {
+    id: string
+    name: string
+    desc: string
+    type: any
+    target: string
+    typeDamage: string
+    accuracy: string
+    power: string
+    pp: string
+    priority: string
+    ailment: string
+    ailment_chance: string
+    category: string
+    crit_rate: string
+    drain: string
+    healing: string
+    max_hits: string
+    max_turns: string
+    min_hits: string
+    min_turns: string
+}

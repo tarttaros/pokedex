@@ -27,3 +27,7 @@ export function formatItemName(name: string): string {
         return name = ("data-card-22")
     } else return name.toLowerCase()
 }
+
+export function formatAbilityName(name: string): string {
+    return name.toLowerCase()
+}

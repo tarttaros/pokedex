@@ -9,9 +9,9 @@ const Footer = () => {
         <footer className={styles.footer}>
             <Link
                 className={styles.footerLink}
-                to="/pokemons"
+                to="/"
             >
-                <img className={styles.footerIcon} src={PokemonPic} alt="Pokemon" />
+                <img className={styles.footerIcon} src={PokemonPic} alt="Pokemons" />
                 Pokemons
             </Link>
             <Link
@@ -22,12 +22,11 @@ const Footer = () => {
                 Items
             </Link>
             <Link
-                onClick={(event) => event.preventDefault()}
                 className={styles.footerLink}
-                to="/location"
+                to="/abilities"
             >
-                <img className={styles.footerIcon} src={LocationPic} alt="Location" />
-                Location
+                <img className={styles.footerIcon} src={LocationPic} alt="Abilities" />
+                Abilities
             </Link>
         </footer>
     )
