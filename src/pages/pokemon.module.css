@@ -142,7 +142,7 @@
     justify-content: center;
     align-items: center;
     justify-content: center;
-    width: 25vh;
+    width: 30vh;
     padding: 10px;
     text-decoration: none;
 }
@@ -151,24 +151,11 @@
     margin: 0;
 }
 
-.imageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20vh;
-}
-
 .abilityContainer {
     display: flex;
     justify-content: flex-start;
     align-items: start;
     width: 40vh;
-}
-
-.listAbilityIcon {
-    width: 3rem;
-    height: 3rem;
-    object-fit: contain;
 }
 
 .listAbilityText {
