@@ -96,7 +96,6 @@
     line-height: 1.5;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
@@ -130,19 +129,13 @@
 .nav {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: auto;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    margin: 0 0 0 20px;
 }
 
 .listAbility {
     display: flex;
     justify-content: center;
-    align-items: center;
-    justify-content: center;
-    width: 30vh;
     padding: 10px;
     text-decoration: none;
 }
@@ -160,7 +153,6 @@
 
 .listAbilityText {
     color: #2c3e50;
-    -webkit-background-clip: text;
     font-size: 1.25rem;
     display: block;
     font-weight: bold;
