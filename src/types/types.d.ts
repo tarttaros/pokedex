@@ -14,6 +14,7 @@ export type PokemonDetails = {
     defense: number
     defenseSp: number
     speed: number
+    abilities: Ability[]
 }
 
 export type Item = {

@@ -23,15 +23,20 @@
     margin-right: 5px;
 }
 
-.pokemon {
+.pokemon,
+.abilityBackside {
     display: flex;
     align-items: center;
     justify-content: center;
     align-content: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
 }
 
 /* Estilo Card - Versión Mejorada */
-.pokemonInfo {
+.pokemonInfo,
+.abilityInfoBackside {
     background: var(--bg-border);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -39,6 +44,17 @@
     transition: all 0.3s ease;
     border: 1px solid #f0f0f0;
     text-align: center;
+}
+
+.pokemonInfo {
+    transform: rotateY(180deg);
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+    align-content: end;
 }
 
 /* Imagen */
@@ -92,4 +108,73 @@
     text-align: center;
     font-size: 1.2rem;
     font-weight: 750;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.toggleButton {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.toggleButton:hover {
+    background-color: #45a049;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listAbility {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 25vh;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.listAbility> :last-child {
+    margin: 0;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vh;
+}
+
+.abilityContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    width: 40vh;
+}
+
+.listAbilityIcon {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.listAbilityText {
+    color: #2c3e50;
+    -webkit-background-clip: text;
+    font-size: 1.25rem;
+    display: block;
+    font-weight: bold;
 }
